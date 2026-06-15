@@ -1,0 +1,27 @@
+---
+description: CPU Viz project rules — read PRD, ARCHITECTURE, and PROJECT_STATUS before coding
+globs:
+alwaysApply: true
+---
+
+# CPU Viz — Cursor Rules
+
+Before implementing any feature:
+
+1. Read [PROJECT_STATUS.md](../../PROJECT_STATUS.md) for current task
+2. Read [ARCHITECTURE.md](../../ARCHITECTURE.md) for structure and schema
+3. Read [PRD.md](../../PRD.md) for feature requirements
+4. Follow [cursor-rules.md](../../cursor-rules.md) workflow (explain → design → plan → implement → verify → update status)
+
+## Stack
+
+Next.js App Router · TypeScript · TailwindCSS · React Flow · D3.js · Framer Motion · PostgreSQL · Prisma
+
+## Key Rules
+
+- Server Components for data fetching; `"use client"` only when needed
+- Visualization components are schema-driven via `config` props
+- No hardcoded lesson/company data in components — use DB/seed
+- Dynamic import viz libraries with `ssr: false`
+- Update PROJECT_STATUS.md after completing tasks
+- Minimize scope; no drive-by refactors

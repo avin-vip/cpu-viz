@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cpu_viz_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cpu_viz
+      POSTGRES_PASSWORD: cpu_viz
+      POSTGRES_DB: cpu_viz
+    ports:
+      - "5432:5432"
+    volumes:
+      - cpu_viz_pgdata:/var/lib/postgresql/data
+
+volumes:
+  cpu_viz_pgdata:

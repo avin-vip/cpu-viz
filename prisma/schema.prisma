@@ -1,0 +1,292 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Learning Content ───────────────────────────────────────────
+
+model Module {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String
+  icon        String?
+  order       Int       @default(0)
+  published   Boolean   @default(false)
+  tracks      Track[]
+  concepts    Concept[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Track {
+  id          String   @id @default(cuid())
+  slug        String
+  title       String
+  description String?
+  order       Int      @default(0)
+  moduleId    String
+  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  lessons     Lesson[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([moduleId, slug])
+}
+
+enum ContentBlockType {
+  TEXT
+  HEADING
+  DIAGRAM
+  VISUALIZATION
+  CALLOUT
+  GLOSSARY_TERM
+  QUIZ
+}
+
+model Lesson {
+  id           String         @id @default(cuid())
+  slug         String
+  title        String
+  summary      String?
+  order        Int            @default(0)
+  estimatedMin Int?
+  published    Boolean        @default(false)
+  trackId      String
+  track        Track          @relation(fields: [trackId], references: [id], onDelete: Cascade)
+  blocks       ContentBlock[]
+  concepts     Concept[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@unique([trackId, slug])
+  @@index([published])
+}
+
+model ContentBlock {
+  id        String           @id @default(cuid())
+  type      ContentBlockType
+  order     Int              @default(0)
+  data      Json
+  lessonId  String
+  lesson    Lesson           @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@index([lessonId, order])
+}
+
+model Concept {
+  id            String                @id @default(cuid())
+  slug          String                @unique
+  term          String
+  definition    String
+  moduleId      String?
+  module        Module?               @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+  lessons       Lesson[]
+  prerequisites ConceptPrerequisite[] @relation("PrereqTarget")
+  dependents    ConceptPrerequisite[] @relation("PrereqSource")
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+}
+
+model ConceptPrerequisite {
+  id       String  @id @default(cuid())
+  sourceId String
+  targetId String
+  source   Concept @relation("PrereqSource", fields: [sourceId], references: [id], onDelete: Cascade)
+  target   Concept @relation("PrereqTarget", fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, targetId])
+}
+
+// ─── Knowledge Graph ────────────────────────────────────────────
+
+enum CompanyCategory {
+  FABLESS
+  IDM
+  FOUNDRY
+  EDA
+  EQUIPMENT
+  MATERIALS
+  OSAT
+  IP
+  CLOUD
+  OTHER
+}
+
+model Company {
+  id           String          @id @default(cuid())
+  slug         String          @unique
+  name         String
+  ticker       String?
+  category     CompanyCategory
+  description  String?
+  headquarters String?
+  founded      Int?
+  website      String?
+  logoUrl      String?
+  metadata     Json?
+  facilities   Facility[]
+  products     Product[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([category])
+  @@index([ticker])
+}
+
+enum FacilityType {
+  FAB
+  OSAT
+  R_AND_D
+  HQ
+  DATA_CENTER
+}
+
+model Facility {
+  id          String       @id @default(cuid())
+  name        String
+  type        FacilityType
+  location    String?
+  processNode String?
+  companyId   String
+  company     Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([companyId])
+}
+
+enum TechCategory {
+  PROCESS
+  PACKAGING
+  ARCHITECTURE
+  MATERIAL
+  TOOL
+}
+
+model Technology {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  name        String
+  category    TechCategory
+  description String?
+  nodeNm      Int?
+  metadata    Json?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([category])
+}
+
+enum ProductCategory {
+  CPU
+  GPU
+  AI_ACCELERATOR
+  MEMORY
+  FPGA
+  MOBILE_SOC
+  EDA_TOOL
+  EQUIPMENT
+}
+
+model Product {
+  id          String          @id @default(cuid())
+  slug        String          @unique
+  name        String
+  category    ProductCategory
+  description String?
+  companyId   String?
+  company     Company?        @relation(fields: [companyId], references: [id], onDelete: SetNull)
+  metadata    Json?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([companyId])
+  @@index([category])
+}
+
+enum ProcessStage {
+  DESIGN
+  FABRICATION
+  ASSEMBLY
+  TEST
+}
+
+model Process {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  name        String
+  stage       ProcessStage
+  description String?
+  order       Int          @default(0)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([stage])
+  @@index([stage, order])
+}
+
+enum NodeType {
+  COMPANY
+  TECHNOLOGY
+  PRODUCT
+  PROCESS
+  CONCEPT
+}
+
+enum EdgeType {
+  SUPPLIES
+  CUSTOMER_OF
+  PARTNERS_WITH
+  COMPETES_WITH
+  USES_TECHNOLOGY
+  MANUFACTURES
+  ENABLES
+  PART_OF
+  PREREQUISITE
+  RELATED
+}
+
+model GraphEdge {
+  id         String   @id @default(cuid())
+  type       EdgeType
+  sourceType NodeType
+  sourceId   String
+  targetType NodeType
+  targetId   String
+  label      String?
+  strength   Int      @default(3)
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([sourceType, sourceId, targetType, targetId, type])
+  @@index([sourceType, sourceId])
+  @@index([targetType, targetId])
+  @@index([type])
+}
+
+// ─── Visualizations ─────────────────────────────────────────────
+
+enum VizRenderer {
+  REACT_FLOW
+  D3
+  COMPOSITE
+}
+
+model Visualization {
+  id         String      @id @default(cuid())
+  slug       String      @unique
+  title      String
+  renderer   VizRenderer
+  config     Json
+  moduleSlug String?
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}

@@ -1,0 +1,221 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+:root {
+  color-scheme: dark;
+
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --primary: #3b82f6;
+  --primary-foreground: #eff6ff;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --card: #0f0f12;
+  --card-foreground: #f4f4f5;
+  --accent: #1e293b;
+  --accent-foreground: #e2e8f0;
+  --destructive: #ef4444;
+  --ring: #3b82f6;
+
+  /* Supply chain graph node colors by company category */
+  --viz-node-fabless: #3b82f6;
+  --viz-node-idm: #8b5cf6;
+  --viz-node-foundry: #06b6d4;
+  --viz-node-eda: #f59e0b;
+  --viz-node-equipment: #10b981;
+  --viz-node-materials: #84cc16;
+  --viz-node-osat: #ec4899;
+  --viz-node-ip: #6366f1;
+  --viz-node-cloud: #14b8a6;
+  --viz-node-other: #94a3b8;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--foreground);
+}
+
+/* Lesson prose */
+.prose-cpu {
+  max-width: 65ch;
+  color: var(--foreground);
+  line-height: 1.75;
+}
+
+.prose-cpu > * + * {
+  margin-top: 1.25em;
+}
+
+.prose-cpu h1,
+.prose-cpu h2,
+.prose-cpu h3,
+.prose-cpu h4 {
+  color: var(--foreground);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.prose-cpu h1 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.prose-cpu h2 {
+  font-size: 1.5rem;
+  margin-top: 2em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose-cpu h3 {
+  font-size: 1.25rem;
+  margin-top: 1.75em;
+}
+
+.prose-cpu p {
+  color: color-mix(in srgb, var(--foreground) 92%, transparent);
+}
+
+.prose-cpu a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.prose-cpu a:hover {
+  color: color-mix(in srgb, var(--primary) 80%, white);
+}
+
+.prose-cpu strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.prose-cpu ul,
+.prose-cpu ol {
+  padding-left: 1.5em;
+}
+
+.prose-cpu li {
+  margin-top: 0.35em;
+}
+
+.prose-cpu li::marker {
+  color: var(--muted-foreground);
+}
+
+.prose-cpu code {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+}
+
+.prose-cpu pre {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  padding: 1em;
+}
+
+.prose-cpu pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.prose-cpu blockquote {
+  border-left: 3px solid var(--primary);
+  color: var(--muted-foreground);
+  font-style: italic;
+  padding-left: 1em;
+}
+
+.prose-cpu hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+
+.prose-cpu table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+.prose-cpu th,
+.prose-cpu td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+}
+
+.prose-cpu th {
+  background: var(--muted);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* React Flow — dark theme overrides */
+.react-flow__controls {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+.react-flow__controls-button {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+  fill: var(--foreground) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--muted) !important;
+}
+
+.react-flow__minimap {
+  background: var(--card) !important;
+}

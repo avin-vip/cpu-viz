@@ -1,0 +1,238 @@
+{
+  "nodes": [
+    {
+      "id": "nvidia",
+      "type": "COMPANY",
+      "slug": "nvidia",
+      "label": "NVIDIA",
+      "subtitle": "NVDA",
+      "category": "Fabless",
+      "color": "#3b82f6",
+      "description": "Leading AI GPU designer. Blackwell and Hopper accelerators drive datacenter revenue. Depends on TSMC for leading-edge fabrication and SK Hynix/Samsung for HBM."
+    },
+    {
+      "id": "tsmc",
+      "type": "COMPANY",
+      "slug": "tsmc",
+      "label": "TSMC",
+      "subtitle": "TSM",
+      "category": "Foundry",
+      "color": "#f59e0b",
+      "description": "World's largest pure-play foundry. Manufactures NVIDIA, Apple, and AMD leading-edge chips. CoWoS advanced packaging is a key AI bottleneck."
+    },
+    {
+      "id": "asml",
+      "type": "COMPANY",
+      "slug": "asml",
+      "label": "ASML",
+      "subtitle": "ASML",
+      "category": "Equipment",
+      "color": "#8b5cf6",
+      "description": "Monopoly supplier of EUV lithography scanners required for sub-7nm nodes. Equipment lead times directly constrain foundry capacity expansion."
+    },
+    {
+      "id": "sk-hynix",
+      "type": "COMPANY",
+      "slug": "sk-hynix",
+      "label": "SK Hynix",
+      "subtitle": "000660.KS",
+      "category": "IDM",
+      "color": "#10b981",
+      "description": "Primary HBM supplier for NVIDIA AI GPUs. First to mass-produce HBM3E. Memory fab capacity is a binding constraint on AI accelerator output."
+    },
+    {
+      "id": "samsung",
+      "type": "COMPANY",
+      "slug": "samsung",
+      "label": "Samsung Electronics",
+      "subtitle": "005930.KS",
+      "category": "IDM",
+      "color": "#06b6d4",
+      "description": "Competes in memory (HBM, DRAM) and foundry. Secondary HBM and CoWoS packaging supplier. EUV-enabled logic fabs in Pyeongtaek."
+    },
+    {
+      "id": "amd",
+      "type": "COMPANY",
+      "slug": "amd",
+      "label": "AMD",
+      "subtitle": "AMD",
+      "category": "Fabless",
+      "color": "#ef4444",
+      "description": "Fabless CPU and GPU designer competing with NVIDIA in AI accelerators. Also depends on TSMC and HBM supply chain."
+    },
+    {
+      "id": "amkor",
+      "type": "COMPANY",
+      "slug": "amkor",
+      "label": "Amkor Technology",
+      "subtitle": "AMKR",
+      "category": "OSAT",
+      "color": "#64748b",
+      "description": "OSAT provider for advanced packaging including 2.5D interposer assembly, complementing TSMC CoWoS capacity."
+    },
+    {
+      "id": "hbm3e",
+      "type": "TECHNOLOGY",
+      "slug": "hbm3e",
+      "label": "HBM3E",
+      "category": "Memory Technology",
+      "color": "#a855f7",
+      "description": "Fifth-generation High Bandwidth Memory stacking 12 DRAM dies with ~1.2 TB/s bandwidth per stack. Critical for AI training GPUs."
+    },
+    {
+      "id": "cowos",
+      "type": "TECHNOLOGY",
+      "slug": "cowos",
+      "label": "CoWoS",
+      "category": "Packaging",
+      "color": "#d946ef",
+      "description": "Chip-on-Wafer-on-Substrate — TSMC's 2.5D packaging integrating GPU die with HBM stacks on a silicon interposer. Lead time bottleneck for AI chips."
+    },
+    {
+      "id": "euv",
+      "type": "TECHNOLOGY",
+      "slug": "euv",
+      "label": "EUV Lithography",
+      "category": "Process Technology",
+      "color": "#6366f1",
+      "description": "13.5nm wavelength lithography enabling 5nm and below nodes. ASML is the sole equipment supplier; scanner delivery schedules gate fab ramps."
+    },
+    {
+      "id": "b200",
+      "type": "PRODUCT",
+      "slug": "b200",
+      "label": "NVIDIA B200",
+      "category": "AI Accelerator",
+      "color": "#2563eb",
+      "description": "Blackwell-generation AI GPU with 192GB HBM3E, manufactured on TSMC 4NP with CoWoS packaging. Primary demand driver for leading-edge capacity."
+    },
+    {
+      "id": "h100",
+      "type": "PRODUCT",
+      "slug": "h100",
+      "label": "NVIDIA H100",
+      "category": "AI Accelerator",
+      "color": "#1d4ed8",
+      "description": "Hopper-generation datacenter GPU. Established the HBM3 supply chain dependencies still affecting the industry."
+    },
+    {
+      "id": "photolithography",
+      "type": "PROCESS",
+      "slug": "photolithography",
+      "label": "Photolithography",
+      "category": "Fabrication",
+      "color": "#f97316",
+      "description": "Patterning process transferring circuit designs onto wafer photoresist. EUV variants required for sub-7nm layers."
+    },
+    {
+      "id": "advanced-packaging",
+      "type": "PROCESS",
+      "slug": "advanced-packaging",
+      "label": "Advanced Packaging",
+      "category": "Assembly",
+      "color": "#fb923c",
+      "description": "2.5D/3D integration of multiple dies (CoWoS, InFO). Separates memory bandwidth scaling from logic node scaling for AI chips."
+    },
+    {
+      "id": "memory-fabrication",
+      "type": "PROCESS",
+      "slug": "memory-fabrication",
+      "label": "Memory Fabrication",
+      "category": "Fabrication",
+      "color": "#fdba74",
+      "description": "DRAM wafer fabrication and die stacking for HBM. SK Hynix and Samsung dominate AI-grade HBM production."
+    },
+    {
+      "id": "ai-training",
+      "type": "END_MARKET",
+      "slug": "ai-training",
+      "label": "AI Training",
+      "category": "End Market",
+      "color": "#22c55e",
+      "description": "Large-scale model training workloads driving demand for highest-bandwidth GPUs, HBM, and datacenter power infrastructure."
+    },
+    {
+      "id": "data-centers",
+      "type": "END_MARKET",
+      "slug": "data-centers",
+      "label": "Data Centers",
+      "category": "End Market",
+      "color": "#16a34a",
+      "description": "Hyperscaler and enterprise datacenter buildouts. Primary deployment venue for AI accelerators; capex cycles amplify semiconductor demand."
+    },
+    {
+      "id": "cloud-ai",
+      "type": "END_MARKET",
+      "slug": "cloud-ai",
+      "label": "Cloud AI Services",
+      "category": "End Market",
+      "color": "#15803d",
+      "description": "AWS, Azure, GCP AI compute rental. Cloud providers are largest buyers of NVIDIA accelerators, linking end demand to chip orders."
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "asml", "target": "tsmc", "type": "SUPPLIES", "label": "EUV scanners", "strength": 5 },
+    { "id": "e2", "source": "asml", "target": "samsung", "type": "SUPPLIES", "label": "EUV scanners", "strength": 4 },
+    { "id": "e3", "source": "tsmc", "target": "nvidia", "type": "SUPPLIES", "label": "Fab services", "strength": 5 },
+    { "id": "e4", "source": "tsmc", "target": "amd", "type": "SUPPLIES", "label": "Fab services", "strength": 4 },
+    { "id": "e5", "source": "sk-hynix", "target": "nvidia", "type": "SUPPLIES", "label": "HBM3E", "strength": 5 },
+    { "id": "e6", "source": "samsung", "target": "nvidia", "type": "SUPPLIES", "label": "HBM / packaging", "strength": 3 },
+    { "id": "e7", "source": "amkor", "target": "nvidia", "type": "SUPPLIES", "label": "OSAT packaging", "strength": 2 },
+    { "id": "e8", "source": "nvidia", "target": "b200", "type": "MANUFACTURES", "label": "Designs", "strength": 5 },
+    { "id": "e9", "source": "nvidia", "target": "h100", "type": "MANUFACTURES", "label": "Designs", "strength": 4 },
+    { "id": "e10", "source": "tsmc", "target": "b200", "type": "MANUFACTURES", "label": "Fabricates", "strength": 5 },
+    { "id": "e11", "source": "tsmc", "target": "h100", "type": "MANUFACTURES", "label": "Fabricates", "strength": 4 },
+    { "id": "e12", "source": "b200", "target": "hbm3e", "type": "USES_TECHNOLOGY", "label": "Requires", "strength": 5 },
+    { "id": "e13", "source": "h100", "target": "hbm3e", "type": "USES_TECHNOLOGY", "label": "Requires", "strength": 4 },
+    { "id": "e14", "source": "b200", "target": "cowos", "type": "USES_TECHNOLOGY", "label": "Packaged with", "strength": 5 },
+    { "id": "e15", "source": "tsmc", "target": "cowos", "type": "USES_TECHNOLOGY", "label": "CoWoS capacity", "strength": 5 },
+    { "id": "e16", "source": "tsmc", "target": "euv", "type": "USES_TECHNOLOGY", "label": "Requires", "strength": 5 },
+    { "id": "e17", "source": "samsung", "target": "euv", "type": "USES_TECHNOLOGY", "label": "Requires", "strength": 4 },
+    { "id": "e18", "source": "euv", "target": "photolithography", "type": "PART_OF", "label": "Implements", "strength": 5 },
+    { "id": "e19", "source": "cowos", "target": "advanced-packaging", "type": "PART_OF", "label": "Implements", "strength": 5 },
+    { "id": "e20", "source": "hbm3e", "target": "memory-fabrication", "type": "PART_OF", "label": "Requires", "strength": 5 },
+    { "id": "e21", "source": "sk-hynix", "target": "hbm3e", "type": "MANUFACTURES", "label": "Produces", "strength": 5 },
+    { "id": "e22", "source": "samsung", "target": "hbm3e", "type": "MANUFACTURES", "label": "Produces", "strength": 3 },
+    { "id": "e23", "source": "sk-hynix", "target": "memory-fabrication", "type": "USES_TECHNOLOGY", "label": "Operates", "strength": 5 },
+    { "id": "e24", "source": "b200", "target": "ai-training", "type": "SERVES_MARKET", "label": "Deployed in", "strength": 5 },
+    { "id": "e25", "source": "h100", "target": "ai-training", "type": "SERVES_MARKET", "label": "Deployed in", "strength": 4 },
+    { "id": "e26", "source": "b200", "target": "data-centers", "type": "SERVES_MARKET", "label": "Deployed in", "strength": 5 },
+    { "id": "e27", "source": "ai-training", "target": "data-centers", "type": "RELATED", "label": "Hosted in", "strength": 4 },
+    { "id": "e28", "source": "data-centers", "target": "cloud-ai", "type": "RELATED", "label": "Enables", "strength": 4 },
+    { "id": "e29", "source": "nvidia", "target": "cloud-ai", "type": "SERVES_MARKET", "label": "Sells into", "strength": 5 },
+    { "id": "e30", "source": "amd", "target": "ai-training", "type": "SERVES_MARKET", "label": "Competes in", "strength": 3 },
+    { "id": "e31", "source": "asml", "target": "euv", "type": "MANUFACTURES", "label": "Equipment for", "strength": 5 },
+    { "id": "e32", "source": "photolithography", "target": "tsmc", "type": "ENABLES", "label": "Enables", "strength": 5 },
+    { "id": "e33", "source": "advanced-packaging", "target": "tsmc", "type": "ENABLES", "label": "Enables", "strength": 4 }
+  ],
+  "scenarios": [
+    {
+      "id": "ai-demand-surge",
+      "name": "AI Demand Surge",
+      "description": "Hyperscaler capex accelerates. NVIDIA B200 orders spike, straining TSMC CoWoS and HBM supply chains.",
+      "focusNode": "nvidia",
+      "highlightNodes": ["nvidia", "b200", "tsmc", "cowos", "hbm3e", "sk-hynix", "ai-training", "data-centers", "cloud-ai"]
+    },
+    {
+      "id": "hbm-shortage",
+      "name": "HBM Shortage",
+      "description": "HBM3E supply fails to meet GPU demand. SK Hynix allocation becomes critical bottleneck for NVIDIA shipments.",
+      "focusNode": "hbm3e",
+      "highlightNodes": ["hbm3e", "sk-hynix", "samsung", "memory-fabrication", "nvidia", "b200", "h100"]
+    },
+    {
+      "id": "euv-delays",
+      "name": "EUV Equipment Delays",
+      "description": "ASML scanner delivery delays push out TSMC and Samsung fab ramps, constraining leading-edge GPU output.",
+      "focusNode": "euv",
+      "highlightNodes": ["euv", "asml", "photolithography", "tsmc", "samsung", "nvidia", "b200"]
+    },
+    {
+      "id": "cowos-expansion",
+      "name": "CoWoS Capacity Expansion",
+      "description": "TSMC expands CoWoS packaging lines. Advanced packaging becomes gating factor for AI accelerator production.",
+      "focusNode": "cowos",
+      "highlightNodes": ["cowos", "tsmc", "advanced-packaging", "amkor", "nvidia", "b200", "hbm3e"]
+    }
+  ]
+}
