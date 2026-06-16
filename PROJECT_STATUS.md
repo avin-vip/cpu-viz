@@ -33,6 +33,7 @@ Interactive semiconductor dependency explorer for finance analysts. Static JSON 
 
 | Priority | Task | Notes |
 |----------|------|-------|
+| P1 | Semiconductor Fundamentals Ecosystem Map | New `/ecosystem` explore mode with stages + term path highlights (static JSON) |
 | P2 | Expand graph data (more companies, edges) | Add nodes via `src/data/knowledge-graph.json` only |
 | P2 | Scenario impact annotations | Show affected/revenue-at-risk labels on nodes during scenarios |
 | P2 | Shareable trace URLs | Extend URL state with `trace=upstream\|downstream` |
@@ -60,6 +61,12 @@ Interactive semiconductor dependency explorer for finance analysts. Static JSON 
 - [x] `DependencyGraphToolbar` — search, type filters, trace controls, scenarios
 - [x] `DependencyGraphLegend` — node type legend
 - [x] Updated `GraphDetailPanel` for all node types
+
+### New: Semiconductor Fundamentals Visualization Mode
+- [x] `/ecosystem` — interactive “ecosystem map” experience (zoomable, clickable stages/terms)
+- [x] `src/data/semiconductor-ecosystem.json` — static JSON concepts + relationships + guided paths
+- [x] Term path highlighting examples: **HBM** and **EUV**
+- [x] Stage drill-in: concise explanation + simplified diagram + example technologies + example companies
 
 ### Product shell
 - [x] Landing page pivoted to analyst messaging (no DB dependency)

@@ -25,6 +25,14 @@ function strengthToStrokeWidth(strength: number): number {
   return STRENGTH_STROKE_WIDTH[strength] ?? 2;
 }
 
+function getVizNodeType(node: GraphNodeDisplay): string {
+  const metaType = node.metadata?.vizNodeType;
+  if (typeof metaType === "string" && metaType.trim().length > 0) {
+    return metaType;
+  }
+  return "company";
+}
+
 function toReactFlowNode(node: GraphNodeDisplay): ReactFlowNode {
   const data: ReactFlowNodeData = {
     label: node.label,
@@ -32,11 +40,12 @@ function toReactFlowNode(node: GraphNodeDisplay): ReactFlowNode {
     category: node.category,
     color: node.color,
     href: node.href,
+    ...node.metadata,
   };
 
   return {
     id: node.id,
-    type: "company",
+    type: getVizNodeType(node),
     position: { x: 0, y: 0 },
     data,
   };

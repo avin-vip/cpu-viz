@@ -5,8 +5,6 @@ import type { ComponentType } from "react";
 
 import type { ReactFlowVizConfig } from "@/types/visualization";
 
-export type VizSlug = "cpu-pipeline" | "supply-chain";
-
 export interface PipelineVizProps {
   config: ReactFlowVizConfig;
   activeStep?: number;
@@ -20,8 +18,6 @@ export interface SupplyChainVizProps {
   onNodeSelect?: (nodeId: string | null) => void;
   className?: string;
 }
-
-export type VizComponentProps = PipelineVizProps | SupplyChainVizProps;
 
 const PipelineDiagram = dynamic(
   () =>
@@ -53,9 +49,36 @@ const SupplyChainGraph = dynamic(
   },
 );
 
+const EcosystemGraph = dynamic(
+  () =>
+    import("@/components/visualizations/react-flow/ecosystem-graph").then(
+      (mod) => mod.EcosystemGraph,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full min-h-[400px] animate-pulse items-center justify-center rounded-lg bg-muted/40 text-sm text-muted-foreground">
+        Loading ecosystem map…
+      </div>
+    ),
+  },
+);
+
+export type VizSlug = "cpu-pipeline" | "supply-chain" | "semiconductor-ecosystem";
+
+export interface EcosystemVizProps {
+  config: ReactFlowVizConfig;
+  selectedNodeId?: string | null;
+  onNodeSelect?: (nodeId: string | null) => void;
+  className?: string;
+}
+
+export type VizComponentProps = PipelineVizProps | SupplyChainVizProps | EcosystemVizProps;
+
 const VIZ_REGISTRY: Record<VizSlug, ComponentType<VizComponentProps>> = {
   "cpu-pipeline": PipelineDiagram as ComponentType<VizComponentProps>,
   "supply-chain": SupplyChainGraph as ComponentType<VizComponentProps>,
+  "semiconductor-ecosystem": EcosystemGraph as ComponentType<VizComponentProps>,
 };
 
 export function getVizComponent(
@@ -88,3 +111,5 @@ export function VizFallback({ slug }: { slug: string }) {
 }
 
 export { PipelineDiagram, SupplyChainGraph };
+
+export { EcosystemGraph };

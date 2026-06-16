@@ -1,0 +1,278 @@
+{
+  "nodes": [
+    {
+      "id": "stage-raw-materials",
+      "type": "PROCESS",
+      "slug": "raw-materials",
+      "label": "Raw Materials",
+      "subtitle": "Ultra-pure inputs → wafers",
+      "category": "Stage",
+      "color": "#f97316",
+      "description": "Semiconductor manufacturing begins with extremely pure silicon that is shaped into wafers. These wafers act as the foundation on which billions of transistors are built.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 1,
+        "diagramKey": "raw-materials",
+        "examples": {
+          "technologies": ["Silicon", "Specialty gases", "Photoresists", "Chemicals"],
+          "companies": ["Silicon wafer suppliers", "Chemical suppliers", "Industrial gas companies"]
+        }
+      }
+    },
+    {
+      "id": "stage-equipment",
+      "type": "PROCESS",
+      "slug": "semiconductor-equipment",
+      "label": "Semiconductor Equipment",
+      "subtitle": "Machines that make chips possible",
+      "category": "Stage",
+      "color": "#fb923c",
+      "description": "Chipmaking depends on specialized tools that pattern, add, remove, and measure materials at nanometer scale. Tool precision sets the ceiling for how small and complex chips can get.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 2,
+        "diagramKey": "equipment",
+        "examples": {
+          "technologies": ["Lithography", "Etching", "Deposition", "Inspection & Metrology"],
+          "companies": ["ASML", "Applied Materials", "Lam Research", "KLA"]
+        }
+      }
+    },
+    {
+      "id": "stage-foundry",
+      "type": "PROCESS",
+      "slug": "wafer-fabrication",
+      "label": "Wafer Fabrication (Foundries)",
+      "subtitle": "Thousands of steps → transistors",
+      "category": "Stage",
+      "color": "#fdba74",
+      "description": "Foundries manufacture chips designed by other companies. Advanced nodes like 3nm or 2nm require extremely complex manufacturing involving thousands of processing steps.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 3,
+        "diagramKey": "foundry",
+        "examples": {
+          "technologies": ["Process node", "Yield", "Leading edge vs mature", "Capacity"],
+          "companies": ["TSMC", "Samsung Foundry", "GlobalFoundries"]
+        }
+      }
+    },
+    {
+      "id": "stage-design",
+      "type": "PROCESS",
+      "slug": "chip-design",
+      "label": "Chip Design",
+      "subtitle": "Blueprints → architectures",
+      "category": "Stage",
+      "color": "#f59e0b",
+      "description": "Design teams turn workloads into architectures, then into layouts ready for fabrication. The design defines what the chip can do; manufacturing defines how efficiently it can be built.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 4,
+        "diagramKey": "design",
+        "examples": {
+          "technologies": ["CPU", "GPU", "AI Accelerator", "Networking chips"],
+          "companies": ["NVIDIA", "AMD", "Qualcomm", "Broadcom", "Apple"]
+        }
+      }
+    },
+    {
+      "id": "stage-memory",
+      "type": "PROCESS",
+      "slug": "memory-manufacturing",
+      "label": "Memory Manufacturing",
+      "subtitle": "Hierarchy + bandwidth bottlenecks",
+      "category": "Stage",
+      "color": "#a855f7",
+      "description": "Memory sits on a speed ladder: tiny and fast near the processor, larger and slower farther away. For AI, HBM is a key bottleneck because it must deliver enormous bandwidth close to the GPU.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 5,
+        "diagramKey": "memory",
+        "examples": {
+          "technologies": ["Registers", "Cache", "DRAM", "Storage", "HBM"],
+          "companies": ["SK Hynix", "Samsung", "Micron"]
+        }
+      }
+    },
+    {
+      "id": "stage-packaging",
+      "type": "PROCESS",
+      "slug": "advanced-packaging-testing",
+      "label": "Advanced Packaging & Testing",
+      "subtitle": "Combine dies + memory at high speed",
+      "category": "Stage",
+      "color": "#d946ef",
+      "description": "Modern AI chips are too complex to rely on a single piece of silicon. Advanced packaging connects multiple chips and memory components together with extremely high-speed connections.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 6,
+        "diagramKey": "packaging",
+        "examples": {
+          "technologies": ["CoWoS", "Chiplets", "2.5D/3D packaging"],
+          "companies": ["TSMC Advanced Packaging", "ASE Technology", "Amkor"]
+        }
+      }
+    },
+    {
+      "id": "stage-end-systems",
+      "type": "END_MARKET",
+      "slug": "end-systems",
+      "label": "Electronic Systems & Data Centers",
+      "subtitle": "Chips become products",
+      "category": "Stage",
+      "color": "#22c55e",
+      "description": "Semiconductors become real products: AI servers, smartphones, and vehicles. System-level constraints (power, cooling, networking) shape what the silicon needs to deliver.",
+      "metadata": {
+        "vizNodeType": "pipelineStage",
+        "stage": 7,
+        "diagramKey": "end-systems",
+        "examples": {
+          "technologies": ["AI server", "Smartphone", "Automotive system"],
+          "companies": ["Cloud providers", "Smartphone manufacturers", "Automotive manufacturers"]
+        }
+      }
+    },
+
+    { "id": "silicon", "type": "TECHNOLOGY", "slug": "silicon", "label": "Silicon", "category": "Material", "color": "#94a3b8", "description": "The base material for most chips. The trick is purity: contaminants at parts-per-billion can ruin device behavior." },
+    { "id": "photoresist", "type": "TECHNOLOGY", "slug": "photoresist", "label": "Photoresist", "category": "Chemical", "color": "#94a3b8", "description": "Light-sensitive polymer that records patterns during lithography. Enables printing transistor features onto wafers." },
+    { "id": "specialty-gases", "type": "TECHNOLOGY", "slug": "specialty-gases", "label": "Specialty Gases", "category": "Material", "color": "#94a3b8", "description": "High-purity gases used for etch and deposition. Gas quality directly affects yield and uniformity." },
+
+    { "id": "lithography", "type": "TECHNOLOGY", "slug": "lithography", "label": "Lithography", "category": "Equipment Category", "color": "#8b5cf6", "description": "Uses light to print transistor patterns onto silicon. Critical for making smaller and more powerful chips." },
+    { "id": "euv", "type": "TECHNOLOGY", "slug": "euv", "label": "EUV", "subtitle": "Extreme ultraviolet lithography", "category": "Lithography", "color": "#6366f1", "description": "EUV uses 13.5nm light to print the smallest features for leading-edge nodes. Tool availability and uptime gate capacity expansion." },
+    { "id": "etching", "type": "TECHNOLOGY", "slug": "etching", "label": "Etching", "category": "Equipment Category", "color": "#8b5cf6", "description": "Removes material to form microscopic structures. Precision determines line widths and device performance." },
+    { "id": "deposition", "type": "TECHNOLOGY", "slug": "deposition", "label": "Deposition", "category": "Equipment Category", "color": "#8b5cf6", "description": "Adds thin layers of materials onto the wafer. Layer thickness and uniformity are critical for transistor behavior." },
+    { "id": "inspection-metrology", "type": "TECHNOLOGY", "slug": "inspection-metrology", "label": "Inspection & Metrology", "category": "Equipment Category", "color": "#8b5cf6", "description": "Detects manufacturing defects and measures precision. Faster detection improves yield and ramp speed." },
+
+    { "id": "process-node", "type": "TECHNOLOGY", "slug": "process-node", "label": "Process node", "subtitle": "e.g., 3nm / 2nm", "category": "Foundry Concept", "color": "#f59e0b", "description": "A shorthand for a generation of manufacturing capability. Smaller nodes generally improve density and efficiency, but at higher complexity and cost." },
+    { "id": "yield", "type": "TECHNOLOGY", "slug": "yield", "label": "Yield", "category": "Foundry Concept", "color": "#f59e0b", "description": "The share of wafers that become good dies. Small yield changes can dominate unit cost and availability at ramp." },
+    { "id": "capacity", "type": "TECHNOLOGY", "slug": "capacity", "label": "Capacity", "category": "Foundry Concept", "color": "#f59e0b", "description": "How many wafers/chips can be produced over time. Constrained by tools, materials, labor, and time to qualify processes." },
+    { "id": "nm-3", "type": "TECHNOLOGY", "slug": "3nm", "label": "3nm", "category": "Leading-edge node", "color": "#f59e0b", "description": "A leading-edge process generation requiring EUV and tight process control. Often capacity- and yield-constrained in early ramps." },
+
+    { "id": "cpu", "type": "PRODUCT", "slug": "cpu", "label": "CPU", "category": "Design category", "color": "#2563eb", "description": "General-purpose processing optimized for sequential tasks and low latency." },
+    { "id": "gpu", "type": "PRODUCT", "slug": "gpu", "label": "GPU", "category": "Design category", "color": "#2563eb", "description": "Thousands of smaller processing units optimized for highly parallel workloads." },
+    { "id": "ai-accelerator", "type": "PRODUCT", "slug": "ai-accelerator", "label": "AI accelerator", "category": "Design category", "color": "#2563eb", "description": "Specialized chips designed for machine learning operations (matrix math at scale)." },
+    { "id": "networking", "type": "PRODUCT", "slug": "networking-chips", "label": "Networking chips", "category": "Design category", "color": "#2563eb", "description": "Move data between processors and systems. Often the hidden bottleneck in large-scale compute." },
+
+    { "id": "memory-hierarchy", "type": "TECHNOLOGY", "slug": "memory-hierarchy", "label": "Memory hierarchy", "category": "Memory Concept", "color": "#a855f7", "description": "Registers → cache → DRAM → storage. Closer is faster and smaller; farther is larger and cheaper." },
+    { "id": "hbm", "type": "TECHNOLOGY", "slug": "hbm", "label": "HBM", "subtitle": "High Bandwidth Memory", "category": "Memory Technology", "color": "#a855f7", "description": "Stacked memory placed close to AI GPUs to deliver extremely high bandwidth. Supply is a critical bottleneck for AI infrastructure." },
+
+    { "id": "cowos", "type": "TECHNOLOGY", "slug": "cowos", "label": "CoWoS", "category": "Packaging", "color": "#d946ef", "description": "A 2.5D packaging approach that integrates GPU dies with HBM stacks on an interposer for very high bandwidth and short links." },
+    { "id": "chiplets", "type": "TECHNOLOGY", "slug": "chiplets", "label": "Chiplets", "category": "Packaging", "color": "#d946ef", "description": "Splitting a system into multiple smaller dies connected inside one package. Improves yield and flexibility, but increases integration complexity." },
+    { "id": "packaging-25d-3d", "type": "TECHNOLOGY", "slug": "2.5d-3d-packaging", "label": "2.5D / 3D packaging", "category": "Packaging", "color": "#d946ef", "description": "Techniques that connect dies with dense interconnects (interposers, TSVs) to improve performance per watt and bandwidth." },
+
+    { "id": "ai-server", "type": "END_MARKET", "slug": "ai-server", "label": "AI server", "category": "End system", "color": "#22c55e", "description": "A compute system combining CPUs, GPUs, HBM, and networking. System constraints (power, cooling, networking) often become the limiting factor." },
+    { "id": "data-center", "type": "END_MARKET", "slug": "data-center", "label": "Data center", "category": "End system", "color": "#22c55e", "description": "Large-scale facility that powers and cools compute. Capex cycles and power availability shape semiconductor demand." },
+
+    { "id": "asml", "type": "COMPANY", "slug": "asml", "label": "ASML", "category": "Equipment", "color": "#8b5cf6", "description": "EUV lithography tool supplier. EUV delivery schedules and uptime can gate leading-edge capacity." },
+    { "id": "applied-materials", "type": "COMPANY", "slug": "applied-materials", "label": "Applied Materials", "category": "Equipment", "color": "#8b5cf6", "description": "Broad tool portfolio across deposition, etch, and materials engineering. Key enabler of advanced process integration." },
+    { "id": "lam-research", "type": "COMPANY", "slug": "lam-research", "label": "Lam Research", "category": "Equipment", "color": "#8b5cf6", "description": "Etch and deposition specialist. Tool performance influences critical dimensions and yield." },
+    { "id": "kla", "type": "COMPANY", "slug": "kla", "label": "KLA", "category": "Inspection & Metrology", "color": "#8b5cf6", "description": "Process control leader. Faster defect detection improves yield learning curves." },
+
+    { "id": "tsmc", "type": "COMPANY", "slug": "tsmc", "label": "TSMC", "category": "Foundry", "color": "#f59e0b", "description": "Leading-edge foundry. Advanced nodes and packaging capacity are key constraints for AI chips." },
+    { "id": "samsung-foundry", "type": "COMPANY", "slug": "samsung-foundry", "label": "Samsung Foundry", "category": "Foundry", "color": "#06b6d4", "description": "Leading-edge foundry competitor. EUV tool availability and process maturity affect capacity." },
+    { "id": "globalfoundries", "type": "COMPANY", "slug": "globalfoundries", "label": "GlobalFoundries", "category": "Foundry", "color": "#f59e0b", "description": "Mature-node foundry focused on specialty processes. Often critical for power, RF, and automotive supply chains." },
+
+    { "id": "nvidia", "type": "COMPANY", "slug": "nvidia", "label": "NVIDIA", "category": "Design", "color": "#2563eb", "description": "AI GPU designer. Depends on foundry capacity, advanced packaging, and HBM supply." },
+    { "id": "amd", "type": "COMPANY", "slug": "amd", "label": "AMD", "category": "Design", "color": "#2563eb", "description": "CPU/GPU designer. Uses chiplets extensively and depends on foundry + packaging ecosystems." },
+    { "id": "qualcomm", "type": "COMPANY", "slug": "qualcomm", "label": "Qualcomm", "category": "Design", "color": "#2563eb", "description": "Mobile SoC designer. Depends on foundries and mature/leading nodes for smartphones." },
+    { "id": "broadcom", "type": "COMPANY", "slug": "broadcom", "label": "Broadcom", "category": "Networking", "color": "#2563eb", "description": "Networking silicon supplier. Often a key link between compute and system-level throughput." },
+    { "id": "apple", "type": "COMPANY", "slug": "apple", "label": "Apple", "category": "Design", "color": "#2563eb", "description": "Designs custom SoCs for consumer devices. Leading-edge node access can be a competitive differentiator." },
+
+    { "id": "sk-hynix", "type": "COMPANY", "slug": "sk-hynix", "label": "SK Hynix", "category": "Memory", "color": "#a855f7", "description": "HBM supplier. HBM output and quality often gate AI GPU shipments." },
+    { "id": "samsung-memory", "type": "COMPANY", "slug": "samsung-memory", "label": "Samsung Memory", "category": "Memory", "color": "#a855f7", "description": "Major DRAM/NAND producer and HBM competitor. Memory cycles impact supply availability." },
+    { "id": "micron", "type": "COMPANY", "slug": "micron", "label": "Micron", "category": "Memory", "color": "#a855f7", "description": "US memory manufacturer. Expanding HBM capabilities to serve AI demand." },
+
+    { "id": "tsmc-advanced-packaging", "type": "COMPANY", "slug": "tsmc-advanced-packaging", "label": "TSMC Advanced Packaging", "category": "Packaging", "color": "#d946ef", "description": "CoWoS and other advanced packaging capacity provider. A critical integration bottleneck for AI accelerators." },
+    { "id": "ase", "type": "COMPANY", "slug": "ase-technology", "label": "ASE Technology", "category": "OSAT", "color": "#d946ef", "description": "OSAT provider supporting packaging and testing. Complements foundry capacity with assembly throughput." },
+    { "id": "amkor", "type": "COMPANY", "slug": "amkor", "label": "Amkor", "category": "OSAT", "color": "#d946ef", "description": "OSAT provider for advanced packaging. Helps expand packaging capacity beyond foundry captive lines." }
+  ],
+  "edges": [
+    { "id": "flow-1", "source": "stage-raw-materials", "target": "stage-equipment", "type": "ENABLES", "label": "Inputs enable tools", "strength": 3 },
+    { "id": "flow-2", "source": "stage-equipment", "target": "stage-foundry", "type": "ENABLES", "label": "Tools enable fabs", "strength": 5 },
+    { "id": "flow-3", "source": "stage-foundry", "target": "stage-design", "type": "RELATED", "label": "Manufactures designs", "strength": 4 },
+    { "id": "flow-4", "source": "stage-design", "target": "stage-memory", "type": "RELATED", "label": "Requires memory", "strength": 4 },
+    { "id": "flow-5", "source": "stage-memory", "target": "stage-packaging", "type": "ENABLES", "label": "Integrated via packaging", "strength": 5 },
+    { "id": "flow-6", "source": "stage-packaging", "target": "stage-end-systems", "type": "ENABLES", "label": "Becomes systems", "strength": 5 },
+
+    { "id": "rm-1", "source": "stage-raw-materials", "target": "silicon", "type": "PART_OF", "label": "Material", "strength": 3 },
+    { "id": "rm-2", "source": "stage-raw-materials", "target": "photoresist", "type": "PART_OF", "label": "Chemical", "strength": 3 },
+    { "id": "rm-3", "source": "stage-raw-materials", "target": "specialty-gases", "type": "PART_OF", "label": "Material", "strength": 3 },
+
+    { "id": "eq-1", "source": "stage-equipment", "target": "lithography", "type": "PART_OF", "label": "Category", "strength": 4 },
+    { "id": "eq-2", "source": "stage-equipment", "target": "etching", "type": "PART_OF", "label": "Category", "strength": 4 },
+    { "id": "eq-3", "source": "stage-equipment", "target": "deposition", "type": "PART_OF", "label": "Category", "strength": 4 },
+    { "id": "eq-4", "source": "stage-equipment", "target": "inspection-metrology", "type": "PART_OF", "label": "Category", "strength": 4 },
+    { "id": "eq-5", "source": "lithography", "target": "euv", "type": "PART_OF", "label": "Leading-edge", "strength": 5 },
+
+    { "id": "fab-1", "source": "stage-foundry", "target": "process-node", "type": "PART_OF", "label": "Concept", "strength": 4 },
+    { "id": "fab-2", "source": "stage-foundry", "target": "yield", "type": "PART_OF", "label": "Concept", "strength": 4 },
+    { "id": "fab-3", "source": "stage-foundry", "target": "capacity", "type": "PART_OF", "label": "Concept", "strength": 4 },
+    { "id": "fab-4", "source": "process-node", "target": "nm-3", "type": "ENABLES", "label": "Example", "strength": 4 },
+    { "id": "fab-5", "source": "euv", "target": "nm-3", "type": "ENABLES", "label": "Critical enabler", "strength": 5 },
+
+    { "id": "design-1", "source": "stage-design", "target": "cpu", "type": "PART_OF", "label": "Category", "strength": 3 },
+    { "id": "design-2", "source": "stage-design", "target": "gpu", "type": "PART_OF", "label": "Category", "strength": 4 },
+    { "id": "design-3", "source": "stage-design", "target": "ai-accelerator", "type": "PART_OF", "label": "Category", "strength": 5 },
+    { "id": "design-4", "source": "stage-design", "target": "networking", "type": "PART_OF", "label": "Category", "strength": 3 },
+
+    { "id": "mem-1", "source": "stage-memory", "target": "memory-hierarchy", "type": "PART_OF", "label": "Concept", "strength": 4 },
+    { "id": "mem-2", "source": "stage-memory", "target": "hbm", "type": "PART_OF", "label": "Technology", "strength": 5 },
+
+    { "id": "pkg-1", "source": "stage-packaging", "target": "cowos", "type": "PART_OF", "label": "Technology", "strength": 5 },
+    { "id": "pkg-2", "source": "stage-packaging", "target": "chiplets", "type": "PART_OF", "label": "Technique", "strength": 4 },
+    { "id": "pkg-3", "source": "stage-packaging", "target": "packaging-25d-3d", "type": "PART_OF", "label": "Technique", "strength": 4 },
+
+    { "id": "sys-1", "source": "stage-end-systems", "target": "ai-server", "type": "PART_OF", "label": "Example", "strength": 5 },
+    { "id": "sys-2", "source": "ai-server", "target": "data-center", "type": "PART_OF", "label": "Deployed in", "strength": 4 },
+
+    { "id": "co-1", "source": "asml", "target": "euv", "type": "MANUFACTURES", "label": "Builds", "strength": 5 },
+    { "id": "co-2", "source": "applied-materials", "target": "deposition", "type": "SUPPLIES", "label": "Tools", "strength": 4 },
+    { "id": "co-3", "source": "lam-research", "target": "etching", "type": "SUPPLIES", "label": "Tools", "strength": 4 },
+    { "id": "co-4", "source": "kla", "target": "inspection-metrology", "type": "SUPPLIES", "label": "Tools", "strength": 4 },
+
+    { "id": "co-5", "source": "tsmc", "target": "nm-3", "type": "USES_TECHNOLOGY", "label": "Runs", "strength": 5 },
+    { "id": "co-6", "source": "samsung-foundry", "target": "nm-3", "type": "USES_TECHNOLOGY", "label": "Runs", "strength": 3 },
+    { "id": "co-7", "source": "globalfoundries", "target": "capacity", "type": "RELATED", "label": "Mature-node capacity", "strength": 2 },
+
+    { "id": "co-8", "source": "nvidia", "target": "gpu", "type": "MANUFACTURES", "label": "Designs", "strength": 5 },
+    { "id": "co-9", "source": "amd", "target": "cpu", "type": "MANUFACTURES", "label": "Designs", "strength": 4 },
+    { "id": "co-10", "source": "qualcomm", "target": "cpu", "type": "RELATED", "label": "Mobile CPUs", "strength": 2 },
+    { "id": "co-11", "source": "broadcom", "target": "networking", "type": "MANUFACTURES", "label": "Designs", "strength": 4 },
+    { "id": "co-12", "source": "apple", "target": "cpu", "type": "RELATED", "label": "SoC CPUs", "strength": 2 },
+
+    { "id": "co-13", "source": "sk-hynix", "target": "hbm", "type": "MANUFACTURES", "label": "Produces", "strength": 5 },
+    { "id": "co-14", "source": "samsung-memory", "target": "hbm", "type": "MANUFACTURES", "label": "Produces", "strength": 3 },
+    { "id": "co-15", "source": "micron", "target": "hbm", "type": "MANUFACTURES", "label": "Produces", "strength": 3 },
+
+    { "id": "co-16", "source": "tsmc-advanced-packaging", "target": "cowos", "type": "MANUFACTURES", "label": "Provides", "strength": 5 },
+    { "id": "co-17", "source": "ase", "target": "chiplets", "type": "RELATED", "label": "OSAT support", "strength": 3 },
+    { "id": "co-18", "source": "amkor", "target": "packaging-25d-3d", "type": "RELATED", "label": "OSAT support", "strength": 3 },
+
+    { "id": "path-hbm-1", "source": "hbm", "target": "stage-packaging", "type": "ENABLES", "label": "Integrated into", "strength": 5 },
+    { "id": "path-hbm-2", "source": "stage-packaging", "target": "gpu", "type": "ENABLES", "label": "Enables AI GPUs", "strength": 5 },
+    { "id": "path-hbm-3", "source": "gpu", "target": "ai-server", "type": "ENABLES", "label": "Powers", "strength": 5 },
+
+    { "id": "path-euv-1", "source": "euv", "target": "stage-foundry", "type": "ENABLES", "label": "Enables leading edge", "strength": 5 },
+    { "id": "path-euv-2", "source": "stage-foundry", "target": "nm-3", "type": "ENABLES", "label": "Example output", "strength": 4 },
+    { "id": "path-euv-3", "source": "nm-3", "target": "gpu", "type": "ENABLES", "label": "Higher density", "strength": 4 },
+    { "id": "path-euv-4", "source": "gpu", "target": "data-center", "type": "SERVES_MARKET", "label": "Deployed in", "strength": 4 }
+  ],
+  "scenarios": [
+    {
+      "id": "hbm-highlight",
+      "name": "HBM path highlight",
+      "description": "Follow how HBM flows from memory manufacturing into packaging, AI GPUs, and AI servers.",
+      "focusNode": "hbm",
+      "highlightNodes": ["stage-memory", "hbm", "stage-packaging", "gpu", "ai-server", "data-center", "sk-hynix", "samsung-memory", "micron", "cowos"]
+    },
+    {
+      "id": "euv-highlight",
+      "name": "EUV path highlight",
+      "description": "See how EUV tools enable leading-edge nodes that power AI GPUs and data centers.",
+      "focusNode": "euv",
+      "highlightNodes": ["stage-equipment", "lithography", "euv", "asml", "stage-foundry", "nm-3", "tsmc", "gpu", "data-center"]
+    }
+  ]
+}
+

@@ -25,6 +25,12 @@ export const exploreNav: NavItem[] = [
     description: "Interactive semiconductor dependency map",
     icon: "graph",
   },
+  {
+    title: "Fundamentals Ecosystem",
+    href: "/ecosystem",
+    description: "Google-Maps-style semiconductor ecosystem overview",
+    icon: "map",
+  },
 ];
 
 export const marketingNav: NavItem[] = [
